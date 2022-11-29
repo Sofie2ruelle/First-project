@@ -1,0 +1,306 @@
+/* TAILLE DE LA POLICE 
+
+-> une taille absolue
+    -> Ne prend pas en consideration l'utilisateur 
+    -> Pixel (px)
+
+-> une taille relative
+    -> Prend en consideration l'utilisateur
+    -> "words"
+        -> xx-small
+        -> x-small
+        -> small
+        -> medium
+        -> large
+        -> x-large
+        -> xx-large
+
+    -> taille "em" (à prévilégier surtout pour les malvoyants)
+        -> 1em <=> normal selon l'élément (taille normal d'un h1, h2, p, etc...) 
+        -> "ex"
+            -> 100% <=> légèrement normal selon l'élément 
+
+/*
+p a { /*tous les liens dans les paragraphes 
+    color: red;
+}
+a[title*="Accueil"] {
+    color: peru;
+}
+
+*/
+
+/*Pour gérer la largeur des blocks exprimée en px ou % height et 
+width
+min-width:
+max-width:
+min-height:
+max-height:
+
+Les balises inline : <a></a>, <li></li> etc...
+
+Les balises block : <img /> (blalises qui font des retours à la ligne
+    -> <div></div> <h1></h1>
+Ces balises fonctionnent avec la fonction "display"
+
+*/
+
+* {
+    box-sizing: border-box;
+    /* permet d'égaliser les width pour le responsive ! */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f4f7f6;
+    /* background: url(https://images.pexels.com/photos/139312/pexels-photo-139312.jpeg?cs=srgb&dl=pexels-fwstudio-139312.jpg&fm=jpg) scroll no-repeat center center; */
+
+}
+
+header {
+    text-align: center;
+    background-color: #1d1d1d;
+    color: white;
+    padding-bottom: 30px;
+}
+
+section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+video {
+    padding-top: 15px;
+}
+
+nav {
+    text-align: center;
+    background-color: white;
+    box-shadow: 0px 3px 1px -1px rgba(0, 0, 0, 0.5);
+    font-size: 1.1em;
+    padding: 15px;
+    position: relative;
+    left: 0px;
+    right: 0px;
+}
+
+
+h1 {
+    font-family: 'adelia', sans-serif;
+    margin-top: 0;
+    padding-top: 30px;
+    /*text-shadow: 3px 3px 3px rgb(84, 82, 82);*/
+    /* DROITE, BAS, ADOUSSISSEMENT, COULEUR */
+}
+
+h1:hover {
+    /* active: au clic, hover: au survol */
+    color: red;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    /* font-weight: normal; /* Pour enlever le gras d'un element */
+    font-size: 1.5em;
+    width: 400px;
+    margin: auto;
+    /* pour recentrer notre h2 à cause du width */
+    overflow: auto;
+    /*overflow (ce qui dépasse)*/
+}
+
+h3::before {
+    content: " « ";
+    color: grey;
+}
+
+h3 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+
+}
+
+h3:after {
+    content: " » ";
+    color: grey;
+}
+
+footer {
+    background-color: #1d1d1d;
+    color: white;
+    border: 1px #1d1d1d solid;
+    text-align: center;
+    padding: 15px;
+}
+
+
+
+ul {
+    /*  padding: 0;*/
+    display: inline;
+}
+
+li {
+    list-style-type: none;
+    display: inline;
+    /* pense à bien réactualiser la page web pour la prise en compte !*/
+    margin: 10px;
+}
+
+li:hover {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    color: rgb(79, 77, 77);
+}
+
+/* ID */
+
+#logo {
+    margin-top: 30px;
+    width: 50px;
+}
+
+#contact {
+    border: 1px black solid;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 50px;
+}
+
+#projets {
+    display: flex;
+    /* sur le conteneur uniquement ! */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#picture-project img,
+.picture-project video {
+    width: 80%;
+    /* Mettre en pourcentage pour que ce soit responsive */
+}
+
+#picture-project p {
+    font-size: 5vw; /* le format vw s'adapte à n'importe quelle taille d'écran */
+    color: rgb(220, 20, 83);
+    font-family: Cookie;
+    animation-duration: 2s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+
+/* CLASSES */
+
+.separator {
+    width: 40px;
+    height: 1px;
+    margin: 15px auto;
+    /* 15px haut et bas, auto pour droite et gauche */
+    display: block;
+    background-color: #999999;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.projet {
+    width: 400px;
+    margin: 30px;
+    display: inline-block;
+    /* on les mets cote à cote et en block*/
+    background-color: white;
+    padding-bottom: 15px;
+    border: 0px black solid;
+    border-radius: 10px;
+    overflow: hidden;
+    /* pour pas que les coins de l'image dépasse les coins du border */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.projet:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transition: 0.3s;
+}
+
+.projet img {
+    min-width: 400px;
+    height: 266px;
+}
+
+.projet .date-project {
+    font-size: 0.7em;
+}
+
+.projet span {
+    text-transform: uppercase;
+    display: block;
+}
+
+.picture {
+    width: 400px;
+    height: 266px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+/* POLICES */
+@font-face {
+    /* selecteur propre à css */
+    font-family: 'adelia';
+    src: url(../src/adelia.ttf) format('truetype');
+}
+
+/* LES MEDIAS QUERIES 
+
+Charger une feuille de style différente dans le doc html par exemple :
+    <link rel="stylesheet" href="text/css" href="design/petit_ecran.css" media="all and (max-width: 1000px)">
+ ou
+
+*/
+
+@media all and (max-width:1000px) {
+    .projet {
+        width: 100%;
+        margin: 15px auto;
+    }
+
+    .projet img {
+        width: 100%;
+        min-width: auto;
+        height: auto;
+    }
+
+    .projet .picture {
+        width: 100%;
+        height: auto;
+    }
+
+    header h2 {
+        width: 90%;
+    }
+
+    #contact p {
+        width: 100%;
+    }
+}
